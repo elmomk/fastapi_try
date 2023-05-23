@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "fastapi tryout"
+version = "0.1.0"
+description = "A tryout of fastapi"
+authors = ["testmo"]
+readme = "README.md"
+packages = [{include = "src", from = "."}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.95.1"
+sqlmodel = "^0.0.8"
+python-decouple = "^3.8"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+passlib = "^1.7.4"
+python-jose = "^3.3.0"
+python-multipart = "^0.0.6"
+bcrypt = "^4.0.1"
+httpx = "^0.24.0"
+pytest = "^7.3.1"
+flake8 = "^6.0.0"
+gunicorn = "^20.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 90
+
+[tool.pyright]
+useLibraryCodeForTypes = false
+typeCheckingMode = 'strict'
+stubPath = './typings'
+exclude = [
+    '**/__init__.py',
+    './typings',
+    ]
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+strictParameterNoneValue = true
+reportUntypedFunctionDecorator = "error"
+reportUntypedClassDecorator = "error"
+reportUntypedBaseClass = "error"
+reportUnusedClass = "error"
+reportUnnecessaryCast = "error"
+reportUnnecessaryComparison = "error"
+reportUnnecessaryContains = "error"
+reportUnnecessaryIsInstance = "error"
+reportImportCycles = "error"
+reportDuplicateImport = "error"
+
+[tool.isort]
+line_length = 90
+atomic = true
+profile = "black"
+skip_gitignore = true
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+tests = []
+skips = []
